@@ -1,0 +1,16 @@
+{
+  "name": "lab-01",
+  "version": "1.0.0",
+  "description": "Lab 1: Node.js and Express server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:http": "node server-http.js"
+  },
+  "keywords": [],
+  "author": "YOUR NAME HERE",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
