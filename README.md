@@ -2,7 +2,7 @@
 
 **Name:** Jaydeep Mallick · **Registration number:** 252U1R9047 · **Section:** Gen AI 2A
 
-**Live link:** https://YOUR-DEPLOYED-URL (or: could not be deployed because ..., see Postman screenshots below)
+**Live link:** https://lab1bdf.vercel.app/
 
 ## How to run
 
