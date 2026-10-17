@@ -1,6 +1,6 @@
 # Lab 1: Node.js and Express server
 
-**Name:** YOUR NAME · **Registration number:** YOUR REG NO · **Section:** YOUR SECTION
+**Name:** Jaydeep Mallick · **Registration number:** YOUR REG NO · **Section:** Gen AI 2A
 
 **Live link:** https://YOUR-DEPLOYED-URL (or: could not be deployed because ..., see Postman screenshots below)
 

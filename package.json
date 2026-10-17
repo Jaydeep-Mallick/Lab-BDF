@@ -8,7 +8,7 @@
     "start:http": "node server-http.js"
   },
   "keywords": [],
-  "author": "YOUR NAME HERE",
+  "author": "Jaydeep Mallick",
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0"
