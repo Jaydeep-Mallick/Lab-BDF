@@ -1,6 +1,6 @@
 # Lab 1: Node.js and Express server
 
-**Name:** Jaydeep Mallick · **Registration number:** YOUR REG NO · **Section:** Gen AI 2A
+**Name:** Jaydeep Mallick · **Registration number:** 252U1R9047 · **Section:** Gen AI 2A
 
 **Live link:** https://YOUR-DEPLOYED-URL (or: could not be deployed because ..., see Postman screenshots below)
 
