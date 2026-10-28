@@ -8,8 +8,8 @@ The service manages a book catalog stored in an SQLite database (`books.db`) and
 
 ## Live Deployment
 
-- **Live Application:** [https://lab2bdf.onrender.com](https://lab2bdf.onrender.com)
-- **Get All Books API:** [https://lab2bdf.onrender.com/books/](https://lab2bdf.onrender.com/books/)
+- **Live Application:** [https://lab-bdf-02.onrender.com](https://lab-bdf-02.onrender.com)
+- **Get All Books API:** [https://lab-bdf-02.onrender.com/books/](https://lab-bdf-02.onrender.com/books/)
 
 The application is deployed on Render and provides REST API endpoints for managing book records.
 
@@ -155,7 +155,7 @@ Server Running at http://localhost:3000/
 
 #### 1. GET `/books/`
 - **Method:** `GET`
-- **URL:** `http://localhost:3000/books/` (or `https://lab2bdf.onrender.com/books/`)
+- **URL:** `http://localhost:3000/books/` (or `https://lab-bdf-02.onrender.com/books/`)
 - **Status:** `200 OK`
 - **Sample Response:**
   ```json
