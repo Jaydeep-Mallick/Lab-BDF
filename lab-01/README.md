@@ -2,8 +2,7 @@
 
 **Name:** Jaydeep Mallick · **Registration number:** 252U1R9047 · **Section:** Gen AI 2A
 
-**Live link (Render):** https://lab-bdf.onrender.com
-**Live link (Vercel):** https://lab1bdf.vercel.app/
+**Live link:** https://lab-bdf.onrender.com
 
 ## How to run
 
