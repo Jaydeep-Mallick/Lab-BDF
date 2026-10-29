@@ -313,6 +313,13 @@ Verifying the updated book catalog after deleting book `12` with HTTP `200 OK` (
 
 ---
 
+### 7. Database Verification via DB Browser for SQLite
+Verifying the persisted database records in `books.db` using DB Browser for SQLite, showing the updated `book` table records.
+
+![Database Verification via DB Browser](<screenshots/Image 29-10-26 at 4.23 PM.png>)
+
+---
+
 ## Render Deployment Configuration
 
 The application is deployed on **Render** as a Web Service.
