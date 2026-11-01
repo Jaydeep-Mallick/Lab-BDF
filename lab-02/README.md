@@ -1,5 +1,7 @@
 # BDF Lab 2: SQLite Database and CRUD Routes (Book API)
 
+**Name:** Jaydeep Mallick · **Registration number:** 252U1R9047 · **Section:** GenAI 2A
+
 This repository contains the complete implementation of **BDF Lab 2: SQLite Database and CRUD Routes** built with **Node.js**, **Express.js**, and **SQLite (`sqlite`, `sqlite3`)**, configured and deployed on **Render Web Services**.
 
 The service manages a book catalog stored in an SQLite database (`books.db`) and exposes five RESTful CRUD endpoints with parameterized SQL queries, clean HTTP status codes (`200`, `201`, `400`, `404`, `500`), idempotent database initialization, and cloud deployment compatibility.
