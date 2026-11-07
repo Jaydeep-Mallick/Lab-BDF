@@ -1,0 +1,396 @@
+{
+  "info": {
+    "_postman_id": "bdf-lab-03-collection",
+    "name": "BDF Lab 03 - REST API, Query Parameters & Validation",
+    "description": "Comprehensive Postman test collection for BDF Lab 03 containing all 18 required test cases for REST endpoints, query parameters, sorting, filtering, validation, and error status codes.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. GET all books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"]
+        },
+        "description": "Retrieves the book collection with default limit=10, offset=0, order_by=id ASC."
+      }
+    },
+    {
+      "name": "02. GET a book using its ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["books", "1"]
+        },
+        "description": "Retrieves book details for ID 1 (To Kill a Mockingbird). Expects 200 OK."
+      }
+    },
+    {
+      "name": "03. GET with search_q",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?search_q=Great",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "search_q",
+              "value": "Great",
+              "description": "Partial title search using SQL LIKE"
+            }
+          ]
+        },
+        "description": "Performs partial title search matching 'The Great Gatsby'."
+      }
+    },
+    {
+      "name": "04. GET with order_by",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?order_by=price",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "order_by",
+              "value": "price",
+              "description": "Sort by price column (default ASC)"
+            }
+          ]
+        },
+        "description": "Sorts books by price in ascending order (default order)."
+      }
+    },
+    {
+      "name": "05. GET with ASC",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?order_by=price&order=ASC",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "order_by",
+              "value": "price"
+            },
+            {
+              "key": "order",
+              "value": "ASC"
+            }
+          ]
+        },
+        "description": "Explicitly requests ascending sort by price."
+      }
+    },
+    {
+      "name": "06. GET with DESC",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?order_by=price&order=DESC",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "order_by",
+              "value": "price"
+            },
+            {
+              "key": "order",
+              "value": "DESC"
+            }
+          ]
+        },
+        "description": "Requests descending sort by price (highest price first)."
+      }
+    },
+    {
+      "name": "07. GET with limit",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?limit=3",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "3"
+            }
+          ]
+        },
+        "description": "Limits output to exactly 3 records."
+      }
+    },
+    {
+      "name": "08. GET with offset",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?limit=3&offset=3",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "3"
+            },
+            {
+              "key": "offset",
+              "value": "3"
+            }
+          ]
+        },
+        "description": "Skips the first 3 records and returns the next 3 (pagination)."
+      }
+    },
+    {
+      "name": "09. GET with min_price and max_price",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?min_price=300&max_price=400",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "min_price",
+              "value": "300"
+            },
+            {
+              "key": "max_price",
+              "value": "400"
+            }
+          ]
+        },
+        "description": "Filters books whose price is BETWEEN 300 and 400."
+      }
+    },
+    {
+      "name": "10. GET with multiple combined query parameters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books?search_q=o&min_price=300&max_price=450&order_by=price&order=DESC&limit=4&offset=0",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"],
+          "query": [
+            {
+              "key": "search_q",
+              "value": "o"
+            },
+            {
+              "key": "min_price",
+              "value": "300"
+            },
+            {
+              "key": "max_price",
+              "value": "450"
+            },
+            {
+              "key": "order_by",
+              "value": "price"
+            },
+            {
+              "key": "order",
+              "value": "DESC"
+            },
+            {
+              "key": "limit",
+              "value": "4"
+            },
+            {
+              "key": "offset",
+              "value": "0"
+            }
+          ]
+        },
+        "description": "Combines search, price-range filter, sorting, and pagination simultaneously."
+      }
+    },
+    {
+      "name": "11. POST with valid data",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert C. Martin\",\n  \"price\": 650,\n  \"pages\": 464\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"]
+        },
+        "description": "Creates a new book. Expects HTTP 201 Created and new bookId."
+      }
+    },
+    {
+      "name": "12. POST without title",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"author\": \"Robert C. Martin\",\n  \"price\": 650,\n  \"pages\": 464\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"]
+        },
+        "description": "Validation test: missing title. Expects HTTP 400 with 'Title is required'."
+      }
+    },
+    {
+      "name": "13. POST without author",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Clean Code\",\n  \"price\": 650,\n  \"pages\": 464\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"]
+        },
+        "description": "Validation test: missing author. Expects HTTP 400 with 'Author is required'."
+      }
+    },
+    {
+      "name": "14. POST with non-numeric price",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert C. Martin\",\n  \"price\": \"free\",\n  \"pages\": 464\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books",
+          "host": ["{{baseUrl}}"],
+          "path": ["books"]
+        },
+        "description": "Validation test: non-numeric price string. Expects HTTP 400 with 'Price must be a valid number'."
+      }
+    },
+    {
+      "name": "15. PUT an existing book",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"To Kill a Mockingbird (Special Edition)\",\n  \"author\": \"Harper Lee\",\n  \"price\": 480,\n  \"pages\": 290\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["books", "1"]
+        },
+        "description": "Updates book details for existing book ID 1. Expects HTTP 200 OK."
+      }
+    },
+    {
+      "name": "16. PUT a nonexistent book",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Phantom Book\",\n  \"author\": \"Anonymous\",\n  \"price\": 200,\n  \"pages\": 100\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books/9999",
+          "host": ["{{baseUrl}}"],
+          "path": ["books", "9999"]
+        },
+        "description": "Attempts update on nonexistent ID 9999. Expects HTTP 404 with 'Book not found'."
+      }
+    },
+    {
+      "name": "17. DELETE an existing book",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/10",
+          "host": ["{{baseUrl}}"],
+          "path": ["books", "10"]
+        },
+        "description": "Deletes book with ID 10. Expects HTTP 200 OK with 'Book Deleted Successfully'."
+      }
+    },
+    {
+      "name": "18. DELETE a nonexistent book",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/9999",
+          "host": ["{{baseUrl}}"],
+          "path": ["books", "9999"]
+        },
+        "description": "Attempts to delete nonexistent ID 9999. Expects HTTP 404 with 'Book not found'."
+      }
+    }
+  ]
+}
+
