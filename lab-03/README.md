@@ -8,10 +8,8 @@
 
 ## Live Link
 
-- **Live Application URL:** [https://lab-bdf-03.onrender.com](https://lab-bdf-03.onrender.com) *(Placeholder for Render deployment)*
-- **Books REST API Endpoint:** [https://lab-bdf-03.onrender.com/books](https://lab-bdf-03.onrender.com/books)
-
-*(Note: Deploy the server to Render, Railway, or NxtWave Cloud IDE and update the URL above. Postman test cases below can be executed against both local and live URLs).*
+- **Live Application URL:** [https://lab-bdf-3.onrender.com](https://lab-bdf-3.onrender.com)
+- **Books REST API Endpoint:** [https://lab-bdf-3.onrender.com/books](https://lab-bdf-3.onrender.com/books)
 
 ---
 
