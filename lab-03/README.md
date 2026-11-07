@@ -464,46 +464,89 @@ As required by the official Lab 03 specification, four common debugging scenario
 
 ## Screenshots
 
-Place your captured screenshots inside the `screenshots/` directory matching the filenames below:
+The following screenshots capture the execution of the REST API endpoints and query operations tested via **Postman**:
 
-### 1. GET All Books (Default Limit & Offset)
-![GET All Books](screenshots/01_get_all_books.png)
+### 1. GET All Books (`GET /books`)
+Retrieving all book records with default pagination, returning HTTP `200 OK`.
 
-### 2. GET Book by ID (200 OK)
-![GET Book by ID](screenshots/02_get_book_by_id.png)
+![GET All Books](<screenshots/Image 07-11-26 at 12.08 PM.png>)
 
-### 3. GET with search_q Partial Match
-![GET with search_q](screenshots/03_get_search_q.png)
+---
 
-### 4. GET with Sorting (order_by=price&order=DESC)
-![GET with Sorting](screenshots/04_get_order_by_desc.png)
+### 2. GET Book by ID (`GET /books/1`)
+Retrieving specific book details for ID `1` ("To Kill a Mockingbird") with HTTP `200 OK`.
 
-### 5. GET with Price Range Filtering (min_price & max_price)
-![GET Price Range Filter](screenshots/05_get_price_range.png)
+![GET Book by ID](<screenshots/Image 07-11-26 at 12.10 PM.png>)
 
-### 6. GET with Combined Query Parameters
-![GET Combined Queries](screenshots/06_get_combined_query.png)
+---
 
-### 7. POST Create Book (201 Created)
-![POST Valid Book](screenshots/07_post_success.png)
+### 3. GET with Partial Search Query (`GET /books/?search_q=the`)
+Partial title search using SQL `LIKE` with query parameter `search_q=the`, returning matching books with HTTP `200 OK`.
 
-### 8. POST Validation Failure (400 Bad Request)
-![POST Validation Error](screenshots/08_post_validation_error.png)
+![GET Search Query](<screenshots/Image 07-11-26 at 12.11 PM.png>)
 
-### 9. PUT Update Book (200 OK)
-![PUT Success](screenshots/09_put_success.png)
+---
 
-### 10. PUT Nonexistent Book (404 Not Found)
-![PUT 404](screenshots/10_put_404.png)
+### 4. GET with Sorting Ascending (`GET /books/?order_by=price&order=ASC`)
+Sorting books by price in ascending order (`order_by=price&order=ASC`), returning lowest price books first with HTTP `200 OK`.
 
-### 11. DELETE Existing Book (200 OK)
-![DELETE Success](screenshots/11_delete_success.png)
+![GET Sorting Ascending](<screenshots/Image 07-11-26 at 12.12 PM.png>)
 
-### 12. DELETE Nonexistent Book (404 Not Found)
-![DELETE 404](screenshots/12_delete_404.png)
+---
 
-### 13. SQLite Database View
-![Database View](screenshots/13_database_view.png)
+### 5. GET with Sorting Descending (`GET /books/?order_by=price&order=DESC`)
+Sorting books by price in descending order (`order_by=price&order=DESC`), returning highest price books first with HTTP `200 OK`.
+
+![GET Sorting Descending](<screenshots/Image 07-11-26 at 12.12 PM 2.png>)
+
+---
+
+### 6. GET with Pagination & Sorting (`GET /books/?limit=5&offset=0`)
+Paginating book records using `limit=5` and `offset=0` with HTTP `200 OK`.
+
+![GET Pagination](<screenshots/Image 07-11-26 at 12.13 PM.png>)
+
+---
+
+### 7. GET with Price Range Filtering (`GET /books/?min_price=200&max_price=500`)
+Filtering books within a specific price range using `min_price=200` and `max_price=500`, returning matching records with HTTP `200 OK`.
+
+![GET Price Range Filter](<screenshots/Image 07-11-26 at 12.13 PM 2.png>)
+
+---
+
+### 8. GET with Combined Query Parameters (Search, Filter, Sort & Paginate)
+Executing a combined query with `search_q=the`, `min_price=100`, `max_price=1000`, `order_by=price`, `order=ASC`, `limit=5`, and `offset=0` with HTTP `200 OK`.
+
+![GET Combined Query Parameters](<screenshots/Image 07-11-26 at 12.14 PM.png>)
+
+---
+
+### 9. POST Create New Book (`POST /books/` - 201 Created)
+Adding a new book record via JSON request body, returning HTTP `201 Created` with confirmation message and newly generated `bookId: 13`.
+
+![POST Create Book](<screenshots/Image 07-11-26 at 12.15 PM.png>)
+
+---
+
+### 10. POST Input Validation Error (`POST /books/` - 400 Bad Request)
+Rejecting a POST request missing the required `title` field, returning HTTP `400 Bad Request` with `{"message": "Title is required"}`.
+
+![POST Validation Error](<screenshots/Image 07-11-26 at 12.16 PM.png>)
+
+---
+
+### 11. PUT Update Book Details (`PUT /books/1` - 200 OK)
+Updating details for book ID `1`, returning HTTP `200 OK` with `{"message": "Book Details Updated Successfully"}`.
+
+![PUT Update Book](<screenshots/Image 07-11-26 at 12.17 PM.png>)
+
+---
+
+### 12. DELETE Book by ID (`DELETE /books/1` - 200 OK)
+Deleting book ID `1` from the database, returning HTTP `200 OK` with `{"message": "Book Deleted Successfully"}`.
+
+![DELETE Book](<screenshots/Image 07-11-26 at 12.18 PM.png>)
 
 ---
 
